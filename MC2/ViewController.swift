@@ -1,7 +1,7 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UITabBarController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -9,12 +9,13 @@ class ViewController: UIViewController {
     }
 }
 
-fileprivate func fetchJSON()
+func fetchJSON()
 {
-    for i in 0...blueChipAPI.count-1
+    for i in 0...blueChipSymbol.count-1
     {
-        let symbol = blueChipAPI[i]
-        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=\(symbol)&apikey=V8BKL6RTFGQV5HZ6"
+        let symbol = blueChipSymbol[i]
+        let key = APIKey[i%5]
+        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=\(symbol)&apikey=\(key)"
         guard let url = URL(string: urlString) else {return}
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
@@ -26,7 +27,7 @@ fileprivate func fetchJSON()
                 var temp = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
                 
                 for i in 0...0{
-                    print(symbol + " " + temp[i].date)
+                    print(symbol + " " + temp[i].date + " Price: $" + temp[i].open + " " + key)
                 }
                 
             } catch let jsonErr{

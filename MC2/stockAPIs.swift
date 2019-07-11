@@ -8,9 +8,11 @@
 
 import Foundation
 
-let blueChipAPI = ["BBCA", "MSFT", "AAPL", "ADBE", "ASFI",
-                   "CHTR", "EHTH", "HLNE", "NDAQ", "RGLD",
-                   "SBUX", "TTEK", "VEON", "WRLD", "SNPS",]
+let APIKey = ["V8BKL6RTFGQV5HZ6", "8TD8ANP00ERIYIDG",
+              "JSVSTDHMIJPER79R", "A8D0WTE1LSTX2JR1",
+              "GJGXP6FGL77ASNGK"]
+let blueChipSymbol = ["BBCA", "MSFT", "AAPL", "ADBE", "ASFI",
+                   "CHTR", "EHTH", "HLNE", "NDAQ", "SBUX"]
 
-//let midCapAPI = [String]()
-//let pennyStockAPI = [String]()
+//let midCapSymbol = [String]()
+//let pennyStockSymbol = [String]()

@@ -339,10 +339,10 @@
             </objects>
             <point key="canvasLocation" x="-62" y="-253"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--View Controller-->
         <scene sceneID="U5S-it-dga">
             <objects>
-                <tabBarController id="DRF-nR-63g" sceneMemberID="viewController">
+                <tabBarController id="DRF-nR-63g" customClass="ViewController" customModule="MC2" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ntB-jT-MTd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
