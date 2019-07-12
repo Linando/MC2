@@ -714,6 +714,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="depositButtonTapped:" destination="FWm-ZU-rIw" eventType="touchUpInside" id="BuR-LU-FJL"/>
+                                    <segue destination="gWw-5f-CiF" kind="show" id="NFI-Ns-Z68"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -812,6 +813,7 @@
         <image name="Chevron Right" width="13" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zhp-qS-41k"/>
+        <segue reference="NFI-Ns-Z68"/>
+        <segue reference="EgE-7r-oz5"/>
     </inferredMetricsTieBreakers>
 </document>
