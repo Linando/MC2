@@ -14,5 +14,8 @@ let APIKey = ["V8BKL6RTFGQV5HZ6", "8TD8ANP00ERIYIDG",
 let blueChipSymbol = ["BBCA", "MSFT", "AAPL", "ADBE", "ASFI",
                    "CHTR", "EHTH", "HLNE", "NDAQ", "SBUX"]
 
-//let midCapSymbol = [String]()
-//let pennyStockSymbol = [String]()
+let midCapSymbol = ["TRMB", "TPR", "IRBT", "WHR", "WTR",
+                    "GRMN", "URI", "PAYC", "BER", "STLD"]
+
+let pennyStockSymbol = ["SFTBY", "OBIIF", "FLMNF", "NCBDF", "BYCBF",
+                        "GLPGF", "CSTNL", "NTDOF", "LVMHF", "ADDDF"]

@@ -15,6 +15,9 @@
 		D249FB7722D4BCF700680BC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D249FB7522D4BCF700680BC1 /* LaunchScreen.storyboard */; };
 		D249FB7F22D737B700680BC1 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB7E22D737B700680BC1 /* Stock.swift */; };
 		D249FB8122D738EB00680BC1 /* stockAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB8022D738EB00680BC1 /* stockAPIs.swift */; };
+		D249FB8322D826CE00680BC1 /* PennyStockJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB8222D826CE00680BC1 /* PennyStockJSON.swift */; };
+		D249FB8522D8294E00680BC1 /* BlueChipJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB8422D8294E00680BC1 /* BlueChipJSON.swift */; };
+		D249FB8722D8295D00680BC1 /* MidCapJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB8622D8295D00680BC1 /* MidCapJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		D249FB7822D4BCF700680BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D249FB7E22D737B700680BC1 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		D249FB8022D738EB00680BC1 /* stockAPIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stockAPIs.swift; sourceTree = "<group>"; };
+		D249FB8222D826CE00680BC1 /* PennyStockJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PennyStockJSON.swift; sourceTree = "<group>"; };
+		D249FB8422D8294E00680BC1 /* BlueChipJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueChipJSON.swift; sourceTree = "<group>"; };
+		D249FB8622D8295D00680BC1 /* MidCapJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidCapJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,9 @@
 			children = (
 				D249FB6922D4BCF600680BC1 /* AppDelegate.swift */,
 				D249FB6B22D4BCF600680BC1 /* ViewController.swift */,
+				D249FB8422D8294E00680BC1 /* BlueChipJSON.swift */,
+				D249FB8622D8295D00680BC1 /* MidCapJSON.swift */,
+				D249FB8222D826CE00680BC1 /* PennyStockJSON.swift */,
 				D249FB8022D738EB00680BC1 /* stockAPIs.swift */,
 				D249FB7E22D737B700680BC1 /* Stock.swift */,
 				D249FB6D22D4BCF600680BC1 /* Main.storyboard */,
@@ -145,9 +154,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D249FB8122D738EB00680BC1 /* stockAPIs.swift in Sources */,
+				D249FB8322D826CE00680BC1 /* PennyStockJSON.swift in Sources */,
 				D249FB6C22D4BCF600680BC1 /* ViewController.swift in Sources */,
+				D249FB8722D8295D00680BC1 /* MidCapJSON.swift in Sources */,
 				D249FB7F22D737B700680BC1 /* Stock.swift in Sources */,
 				D249FB7222D4BCF600680BC1 /* MC2.xcdatamodeld in Sources */,
+				D249FB8522D8294E00680BC1 /* BlueChipJSON.swift in Sources */,
 				D249FB6A22D4BCF600680BC1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
