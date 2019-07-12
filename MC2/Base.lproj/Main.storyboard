@@ -157,7 +157,7 @@
         <!--Stock-->
         <scene sceneID="an7-oQ-uGo">
             <objects>
-                <viewController id="JTW-pC-Rqk" sceneMemberID="viewController">
+                <viewController id="JTW-pC-Rqk" customClass="StockViewController" customModule="MC2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CpC-3f-4p8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,8 +171,8 @@
                                         <color key="textColor" red="0.94901960780000005" green="0.66666666669999997" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 100.000.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erl-0P-D0O">
-                                        <rect key="frame" x="0.0" y="38" width="193" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erl-0P-D0O">
+                                        <rect key="frame" x="0.0" y="38" width="57" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -318,6 +318,9 @@
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Stock" id="AXp-33-sGs"/>
+                    <connections>
+                        <outlet property="balanceTotalLabel" destination="Erl-0P-D0O" id="dWL-qV-VS6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geH-Q1-iAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -665,38 +668,37 @@
         <!--Deposit View Controller-->
         <scene sceneID="3Uc-7t-PG8">
             <objects>
-                <viewController title="Deposit" id="FWm-ZU-rIw" userLabel="Deposit View Controller" sceneMemberID="viewController">
+                <viewController title="Deposit" id="FWm-ZU-rIw" userLabel="Deposit View Controller" customClass="DepositViewController" customModule="MC2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ibi-kc-rbX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRx-vJ-7Rg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRx-vJ-7Rg">
                                 <rect key="frame" x="20" y="106" width="94" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="0.94901960780000005" green="0.66666666669999997" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rp. 100.000.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYL-lV-jxs">
-                                <rect key="frame" x="20" y="144" width="193" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYL-lV-jxs">
+                                <rect key="frame" x="20" y="144" width="16" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Input Your Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgV-tm-0I6">
-                                <rect key="frame" x="98" y="360" width="219" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input Your Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgV-tm-0I6">
+                                <rect key="frame" x="97.5" y="360" width="219" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgM-Ys-tga">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgM-Ys-tga">
                                 <rect key="frame" x="20" y="398" width="374" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="moneyTextFieldEditingChanged:" destination="FWm-ZU-rIw" eventType="editingChanged" id="dyC-ng-nmI"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJP-mW-VmO">
                                 <rect key="frame" x="125" y="436" width="165" height="35"/>
@@ -710,22 +712,41 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="depositButtonTapped:" destination="FWm-ZU-rIw" eventType="touchUpInside" id="BuR-LU-FJL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098040000002" green="0.094117647060000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.94901960780000005" green="0.66666666669999997" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="LgM-Ys-tga" firstAttribute="centerX" secondItem="mgV-tm-0I6" secondAttribute="centerX" id="2e1-SU-gfR"/>
+                            <constraint firstItem="PYL-lV-jxs" firstAttribute="leading" secondItem="Ibi-kc-rbX" secondAttribute="leadingMargin" id="2iC-Oj-s8F"/>
+                            <constraint firstItem="PYL-lV-jxs" firstAttribute="top" secondItem="Ibi-kc-rbX" secondAttribute="top" constant="144" id="4Cc-qc-alA"/>
+                            <constraint firstItem="LgM-Ys-tga" firstAttribute="trailing" secondItem="Ibi-kc-rbX" secondAttribute="trailingMargin" id="GHY-D0-kBU"/>
+                            <constraint firstItem="LgM-Ys-tga" firstAttribute="top" secondItem="mgV-tm-0I6" secondAttribute="bottom" constant="8" symbolic="YES" id="KDJ-zK-kuc"/>
+                            <constraint firstItem="LgM-Ys-tga" firstAttribute="top" secondItem="Ibi-kc-rbX" secondAttribute="top" constant="398" id="NbM-Kf-cVA"/>
+                            <constraint firstItem="PYL-lV-jxs" firstAttribute="leading" secondItem="CRx-vJ-7Rg" secondAttribute="leading" id="f8j-Zd-ifc"/>
+                            <constraint firstItem="PYL-lV-jxs" firstAttribute="top" secondItem="CRx-vJ-7Rg" secondAttribute="bottom" constant="8" symbolic="YES" id="fEz-xH-AAS"/>
+                            <constraint firstItem="PYL-lV-jxs" firstAttribute="leading" secondItem="LgM-Ys-tga" secondAttribute="leading" id="hlu-xE-QTx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PeB-kH-nPg"/>
                     </view>
+                    <connections>
+                        <outlet property="balanceTotalLabel" destination="PYL-lV-jxs" id="10s-an-i7U"/>
+                        <outlet property="depositButton" destination="fJP-mW-VmO" id="d1F-mY-P08"/>
+                        <outlet property="moneyTextField" destination="LgM-Ys-tga" id="piy-2v-r8l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0fc-4N-AHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="683" y="-946"/>
         </scene>
-        <!--Tier-->
+        <!--Stock-->
         <scene sceneID="k2i-Dv-Rcw">
             <objects>
                 <navigationController id="gWw-5f-CiF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tier" id="daY-yV-Ys5"/>
+                    <tabBarItem key="tabBarItem" title="Stock" id="daY-yV-Ys5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5xo-a9-xIL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
