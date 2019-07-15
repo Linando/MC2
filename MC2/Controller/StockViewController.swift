@@ -11,6 +11,9 @@ import UIKit
 
 class StockViewController: UIViewController {
 
+    @IBOutlet weak var blueChipImageView: UIImageView!
+    @IBOutlet weak var midCapImageView: UIImageView!
+    @IBOutlet weak var pennyStockImageView: UIImageView!
     @IBOutlet weak var balanceTotalLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +24,35 @@ class StockViewController: UIViewController {
         }else{
             balanceTotalLabel.text = "0"
         }
+        
+        let tapBlueChip = UITapGestureRecognizer(target: self, action: #selector(tappedBlueChip(_:)))
+        blueChipImageView.addGestureRecognizer(tapBlueChip)
+        blueChipImageView.isUserInteractionEnabled = true
+        
+        let tapMidCap = UITapGestureRecognizer(target: self, action: #selector(tappedMidCap(_:)))
+        midCapImageView.addGestureRecognizer(tapMidCap)
+        midCapImageView.isUserInteractionEnabled = true
+        
+        let tapPennyStock = UITapGestureRecognizer(target: self, action: #selector(tappedPennyStock(_:)))
+        pennyStockImageView.addGestureRecognizer(tapPennyStock)
+        pennyStockImageView.isUserInteractionEnabled = true
         // Do any additional setup after loading the view.
     }
     
+    @objc func tappedBlueChip(_ sender: Any)
+    {
+        self.performSegue(withIdentifier: "blueChipSegue", sender: "")
+    }
+    
+    @objc func tappedMidCap(_ sender: Any)
+    {
+        self.performSegue(withIdentifier: "blueChipSegue", sender: "")
+    }
+    
+    @objc func tappedPennyStock(_ sender: Any)
+    {
+        self.performSegue(withIdentifier: "blueChipSegue", sender: "")
+    }
 
     /*
     // MARK: - Navigation
