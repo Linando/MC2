@@ -28,7 +28,6 @@ class DepositViewController: UIViewController {
     
     
     @IBAction func moneyTextFieldEditingChanged(_ sender: Any) {
-        print("berhasil")
         depositButton.isEnabled = true
         depositButton.alpha = 1
     }
