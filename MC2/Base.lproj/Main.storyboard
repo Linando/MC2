@@ -206,7 +206,7 @@
                                     <constraint firstAttribute="height" constant="150" id="eEJ-kT-GX6"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ed-HJ-VOI">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ed-HJ-VOI">
                                 <rect key="frame" x="20" y="344" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.66666666669999997" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -215,20 +215,13 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="tintColor" red="0.062745098040000002" green="0.094117647060000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="  Blue Chip"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="255" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="  Blue Chip" image="Chevron Right">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="EYC-6c-Q0v" kind="show" id="XEo-QT-bjH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Peq-t6-U2Y">
-                                <rect key="frame" x="344" y="344" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="GP4-ek-IMy"/>
-                                    <constraint firstAttribute="width" constant="50" id="LNq-CH-GVD"/>
-                                </constraints>
-                                <state key="normal" image="Chevron Right"/>
-                                <connections>
-                                    <segue destination="EYC-6c-Q0v" kind="show" id="scd-nG-QaR"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Peh-HX-n69">
@@ -238,25 +231,6 @@
                                     <constraint firstAttribute="height" constant="150" id="dMj-PU-eSH"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unI-3B-aZy">
-                                <rect key="frame" x="20" y="519" width="374" height="50"/>
-                                <color key="backgroundColor" red="0.94901960780000005" green="0.66666666669999997" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="Mie-A5-Uwu"/>
-                                    <constraint firstAttribute="height" constant="50" id="Nf9-TF-9le"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <color key="tintColor" red="0.062745098040000002" green="0.094117647060000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="  Mid-Cap"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abm-N8-OpH">
-                                <rect key="frame" x="344" y="519" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="MDI-LV-vev"/>
-                                    <constraint firstAttribute="width" constant="50" id="pdQ-2r-zux"/>
-                                </constraints>
-                                <state key="normal" image="Chevron Right"/>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K5S-zW-ihy">
                                 <rect key="frame" x="20" y="594" width="374" height="150"/>
                                 <constraints>
@@ -264,24 +238,35 @@
                                     <constraint firstAttribute="height" constant="150" id="vqV-XZ-T93"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xto-Uu-dcr">
-                                <rect key="frame" x="20" y="694" width="374" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oem-Ia-pk0">
+                                <rect key="frame" x="20" y="519" width="374" height="50"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.66666666669999997" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="Lwk-1e-Y0b"/>
-                                    <constraint firstAttribute="height" constant="50" id="M5e-MQ-Zc1"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="4EA-EP-QSG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="KnK-0U-RrT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="tintColor" red="0.062745098040000002" green="0.094117647060000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="  Penny Stock"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="265" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="Mid-Cap" image="Chevron Right">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYe-Oj-PrH">
-                                <rect key="frame" x="344" y="694" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hb-40-dK0">
+                                <rect key="frame" x="20" y="694" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.94901960780000005" green="0.66666666669999997" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Vf9-Ok-Tul"/>
-                                    <constraint firstAttribute="height" constant="50" id="aVa-cb-qtv"/>
+                                    <constraint firstAttribute="height" constant="50" id="Ujp-1Q-drt"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="rd1-2t-Bg5"/>
                                 </constraints>
-                                <state key="normal" image="Chevron Right"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="tintColor" red="0.062745098040000002" green="0.094117647060000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="228" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="Penny Stock" image="Chevron Right">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.062745098039215685" green="0.094117647058823528" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -289,31 +274,25 @@
                         <constraints>
                             <constraint firstItem="Peh-HX-n69" firstAttribute="top" secondItem="QUx-tV-hrG" secondAttribute="bottom" constant="25" id="1LL-T3-Ghn"/>
                             <constraint firstItem="iI4-t5-ZKV" firstAttribute="trailing" secondItem="1HL-cg-XdG" secondAttribute="trailing" constant="159" id="2v1-og-e5G"/>
-                            <constraint firstItem="unI-3B-aZy" firstAttribute="leading" secondItem="iI4-t5-ZKV" secondAttribute="leading" constant="20" id="AtG-3h-kvQ"/>
+                            <constraint firstItem="Oem-Ia-pk0" firstAttribute="leading" secondItem="iI4-t5-ZKV" secondAttribute="leading" constant="20" id="7kB-6s-TBg"/>
                             <constraint firstItem="QUx-tV-hrG" firstAttribute="leading" secondItem="iI4-t5-ZKV" secondAttribute="leading" constant="20" id="BtJ-h8-6Oh"/>
-                            <constraint firstItem="Peq-t6-U2Y" firstAttribute="top" secondItem="3Ed-HJ-VOI" secondAttribute="top" id="Ccs-2M-XVa"/>
+                            <constraint firstItem="Oem-Ia-pk0" firstAttribute="bottom" secondItem="Peh-HX-n69" secondAttribute="bottom" id="CGG-EJ-YUP"/>
                             <constraint firstItem="iI4-t5-ZKV" firstAttribute="trailing" secondItem="Peh-HX-n69" secondAttribute="trailing" constant="20" id="FBo-LA-Gsj"/>
-                            <constraint firstItem="xto-Uu-dcr" firstAttribute="leading" secondItem="iI4-t5-ZKV" secondAttribute="leading" constant="20" id="FDK-9q-3UJ"/>
                             <constraint firstItem="Peh-HX-n69" firstAttribute="leading" secondItem="iI4-t5-ZKV" secondAttribute="leading" constant="20" id="GeV-Ht-DOb"/>
                             <constraint firstItem="K5S-zW-ihy" firstAttribute="top" secondItem="Peh-HX-n69" secondAttribute="bottom" constant="25" id="Jq1-AN-1id"/>
+                            <constraint firstItem="iI4-t5-ZKV" firstAttribute="bottom" secondItem="3hb-40-dK0" secondAttribute="bottom" constant="118" id="S60-cx-nzF"/>
                             <constraint firstItem="iI4-t5-ZKV" firstAttribute="trailing" secondItem="QUx-tV-hrG" secondAttribute="trailing" constant="20" id="SnJ-zO-zn2"/>
                             <constraint firstItem="iI4-t5-ZKV" firstAttribute="trailing" secondItem="3Ed-HJ-VOI" secondAttribute="trailing" constant="20" id="Tdx-Su-3vu"/>
                             <constraint firstItem="QUx-tV-hrG" firstAttribute="top" secondItem="1HL-cg-XdG" secondAttribute="bottom" constant="25" id="UMi-fF-1UH"/>
-                            <constraint firstItem="Abm-N8-OpH" firstAttribute="top" secondItem="unI-3B-aZy" secondAttribute="top" id="cYd-rS-dTd"/>
-                            <constraint firstItem="Abm-N8-OpH" firstAttribute="leading" secondItem="Peq-t6-U2Y" secondAttribute="leading" id="fST-RV-u7k"/>
-                            <constraint firstItem="xto-Uu-dcr" firstAttribute="trailing" secondItem="nYe-Oj-PrH" secondAttribute="trailing" id="hdb-Xz-VyH"/>
-                            <constraint firstItem="iI4-t5-ZKV" firstAttribute="trailing" secondItem="unI-3B-aZy" secondAttribute="trailing" constant="20" id="hlw-jV-Kav"/>
+                            <constraint firstItem="iI4-t5-ZKV" firstAttribute="trailing" secondItem="Oem-Ia-pk0" secondAttribute="trailing" constant="20" id="f4J-ld-gX3"/>
+                            <constraint firstItem="iI4-t5-ZKV" firstAttribute="trailing" secondItem="3hb-40-dK0" secondAttribute="trailing" constant="20" id="hH2-I3-DgD"/>
                             <constraint firstItem="K5S-zW-ihy" firstAttribute="leading" secondItem="iI4-t5-ZKV" secondAttribute="leading" constant="20" id="iqW-72-qkU"/>
                             <constraint firstItem="3Ed-HJ-VOI" firstAttribute="leading" secondItem="iI4-t5-ZKV" secondAttribute="leading" constant="20" id="kvY-5k-sxX"/>
                             <constraint firstItem="iI4-t5-ZKV" firstAttribute="trailing" secondItem="K5S-zW-ihy" secondAttribute="trailing" constant="20" id="lcs-ef-IZd"/>
-                            <constraint firstItem="nYe-Oj-PrH" firstAttribute="top" secondItem="xto-Uu-dcr" secondAttribute="top" id="oiO-de-EYM"/>
                             <constraint firstItem="3Ed-HJ-VOI" firstAttribute="bottom" secondItem="QUx-tV-hrG" secondAttribute="bottom" id="qL9-ok-SSc"/>
-                            <constraint firstItem="Peq-t6-U2Y" firstAttribute="trailing" secondItem="3Ed-HJ-VOI" secondAttribute="trailing" id="t6b-GO-pBB"/>
                             <constraint firstItem="1HL-cg-XdG" firstAttribute="leading" secondItem="iI4-t5-ZKV" secondAttribute="leading" constant="20" id="uJ6-gZ-jND"/>
                             <constraint firstItem="1HL-cg-XdG" firstAttribute="top" secondItem="iI4-t5-ZKV" secondAttribute="top" constant="20" id="vNd-4Z-ck6"/>
-                            <constraint firstItem="xto-Uu-dcr" firstAttribute="bottom" secondItem="K5S-zW-ihy" secondAttribute="bottom" id="vev-K7-WaW"/>
-                            <constraint firstItem="unI-3B-aZy" firstAttribute="bottom" secondItem="Peh-HX-n69" secondAttribute="bottom" id="wao-Ka-amn"/>
-                            <constraint firstItem="iI4-t5-ZKV" firstAttribute="trailing" secondItem="xto-Uu-dcr" secondAttribute="trailing" constant="20" id="xrF-hq-qem"/>
+                            <constraint firstItem="3hb-40-dK0" firstAttribute="leading" secondItem="iI4-t5-ZKV" secondAttribute="leading" constant="20" id="zWm-0Y-aWS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iI4-t5-ZKV"/>
                     </view>
@@ -816,8 +795,8 @@
         <image name="Chevron Right" width="13" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="koB-Tm-yfP"/>
         <segue reference="NFI-Ns-Z68"/>
-        <segue reference="Zhp-qS-41k"/>
-        <segue reference="XEo-QT-bjH"/>
+        <segue reference="EgE-7r-oz5"/>
     </inferredMetricsTieBreakers>
 </document>
