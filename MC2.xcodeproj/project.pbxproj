@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68ECBF6922DC1E9C00CAF7CE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ECBF6822DC1E9C00CAF7CE /* Extension.swift */; };
 		8A32EF0322D8457600EBC8BB /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32EF0222D8457600EBC8BB /* DepositViewController.swift */; };
 		8A32EF0522D84F2100EBC8BB /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32EF0422D84F2100EBC8BB /* StockViewController.swift */; };
 		D249FB6A22D4BCF600680BC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB6922D4BCF600680BC1 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68ECBF6822DC1E9C00CAF7CE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		8A32EF0222D8457600EBC8BB /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		8A32EF0422D84F2100EBC8BB /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 		D249FB6622D4BCF600680BC1 /* MC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +53,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68ECBF6522DC1E2600CAF7CE /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				D249FB8422D8294E00680BC1 /* BlueChipJSON.swift */,
+				D249FB8622D8295D00680BC1 /* MidCapJSON.swift */,
+				D249FB8222D826CE00680BC1 /* PennyStockJSON.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		68ECBF6622DC1E4700CAF7CE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A32EF0222D8457600EBC8BB /* DepositViewController.swift */,
+				8A32EF0422D84F2100EBC8BB /* StockViewController.swift */,
+				D249FB6B22D4BCF600680BC1 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		68ECBF6722DC1E6300CAF7CE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				68ECBF6822DC1E9C00CAF7CE /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		D249FB5D22D4BCF600680BC1 = {
 			isa = PBXGroup;
 			children = (
@@ -70,11 +100,10 @@
 		D249FB6822D4BCF600680BC1 /* MC2 */ = {
 			isa = PBXGroup;
 			children = (
+				68ECBF6722DC1E6300CAF7CE /* Extension */,
+				68ECBF6622DC1E4700CAF7CE /* Controller */,
+				68ECBF6522DC1E2600CAF7CE /* JSON */,
 				D249FB6922D4BCF600680BC1 /* AppDelegate.swift */,
-				D249FB6B22D4BCF600680BC1 /* ViewController.swift */,
-				D249FB8422D8294E00680BC1 /* BlueChipJSON.swift */,
-				D249FB8622D8295D00680BC1 /* MidCapJSON.swift */,
-				D249FB8222D826CE00680BC1 /* PennyStockJSON.swift */,
 				D249FB8022D738EB00680BC1 /* stockAPIs.swift */,
 				D249FB7E22D737B700680BC1 /* Stock.swift */,
 				D249FB6D22D4BCF600680BC1 /* Main.storyboard */,
@@ -82,8 +111,6 @@
 				D249FB7522D4BCF700680BC1 /* LaunchScreen.storyboard */,
 				D249FB7822D4BCF700680BC1 /* Info.plist */,
 				D249FB7022D4BCF600680BC1 /* MC2.xcdatamodeld */,
-				8A32EF0222D8457600EBC8BB /* DepositViewController.swift */,
-				8A32EF0422D84F2100EBC8BB /* StockViewController.swift */,
 			);
 			path = MC2;
 			sourceTree = "<group>";
@@ -163,6 +190,7 @@
 				D249FB8322D826CE00680BC1 /* PennyStockJSON.swift in Sources */,
 				D249FB6C22D4BCF600680BC1 /* ViewController.swift in Sources */,
 				D249FB8722D8295D00680BC1 /* MidCapJSON.swift in Sources */,
+				68ECBF6922DC1E9C00CAF7CE /* Extension.swift in Sources */,
 				D249FB7F22D737B700680BC1 /* Stock.swift in Sources */,
 				D249FB7222D4BCF600680BC1 /* MC2.xcdatamodeld in Sources */,
 				D249FB8522D8294E00680BC1 /* BlueChipJSON.swift in Sources */,

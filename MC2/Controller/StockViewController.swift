@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class StockViewController: UIViewController {
 
     @IBOutlet weak var balanceTotalLabel: UILabel!
@@ -15,7 +16,8 @@ class StockViewController: UIViewController {
         super.viewDidLoad()
         let balance = UserDefaults.standard.integer(forKey: "balance")
         if balance > 0{
-            balanceTotalLabel.text = "\(balance)"
+            
+            balanceTotalLabel.text = "Rp. \(balance.formattedWithSeparator)"
         }else{
             balanceTotalLabel.text = "0"
         }

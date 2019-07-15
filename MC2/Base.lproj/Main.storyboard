@@ -816,7 +816,6 @@
         <image name="Chevron Right" width="13" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="koB-Tm-yfP"/>
         <segue reference="NFI-Ns-Z68"/>
         <segue reference="Zhp-qS-41k"/>
         <segue reference="XEo-QT-bjH"/>
