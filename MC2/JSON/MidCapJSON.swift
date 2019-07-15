@@ -8,6 +8,8 @@
 
 import Foundation
 
+let midCapJSON = [jsonTRMB, jsonTPR, jsonIRBT, jsonWHR, jsonWTR, jsonGRMN, jsonURI, jsonPAYC, jsonBER, jsonSTLD]
+
 let jsonTRMB = """
 {
     "Meta Data": {
@@ -2149,6 +2151,8 @@ let jsonIRBT = """
     }
 }
 """.data(using: .utf8)!
+
+
 
 let jsonWHR = """
 {

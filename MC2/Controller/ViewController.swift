@@ -4,7 +4,7 @@ class ViewController: UITabBarController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchJSON()
+        //fetchJSON()
     }
 }
 

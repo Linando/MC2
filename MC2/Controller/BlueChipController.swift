@@ -12,12 +12,15 @@ class BlueChipController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     var titlePage = ""
-    
-    var temp: [TimeSeries.StockDate] = []
+    var jsonCounter = 98
+    var stockPercentage: Float = 0
+    var sortedStock: [TimeSeries.StockDate] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = titlePage
+        
+    
         
         // Do any additional setup after loading the view.
     }
@@ -32,20 +35,53 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "BlueChipCell") as! BlueChipCell
         
-        do{
-            let decodedStock = try JSONDecoder().decode(Stock.self, from: blueChipJSON[0])
-            temp = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
-            
-        } catch let jsonErr{
-            print("Error serializing json: ", jsonErr)
+        if titlePage == "Blue Chip" {
+            do{
+                let decodedStock = try JSONDecoder().decode(Stock.self, from: blueChipJSON[indexPath.row])
+                sortedStock = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
+                cell.stockSymbol.text = blueChipSymbol[indexPath.row]
+                
+            } catch let jsonErr{
+                print("Error serializing json: ", jsonErr)
+            }
         }
-        
-        cell.stockSymbol.text = blueChipSymbol[indexPath.row]
-        cell.stockPrice.text = temp[indexPath.row].open
-        cell.stockChange.text = "50%"
+        else if titlePage == "Mid-Cap"
+        {
+            do{
+                let decodedStock = try JSONDecoder().decode(Stock.self, from: midCapJSON[indexPath.row])
+                sortedStock = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
+                cell.stockSymbol.text = midCapSymbol[indexPath.row]
+            } catch let jsonErr{
+                print("Error serializing json: ", jsonErr)
+            }
+
+        }
+        else if titlePage == "Penny Stock"
+        {
+            do{
+                let decodedStock = try JSONDecoder().decode(Stock.self, from: pennyStockJSON[indexPath.row])
+                sortedStock = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
+                cell.stockSymbol.text = pennyStockSymbol[indexPath.row]
+                
+            } catch let jsonErr{
+                print("Error serializing json: ", jsonErr)
+            }
+            
+        }
+        cell.stockPrice.text = sortedStock[jsonCounter].open
+        stockPercentage = (Float(sortedStock[jsonCounter].open)! - Float(sortedStock[jsonCounter+1].open)!) * 100 / Float(sortedStock[jsonCounter+1].open)!
+        if(stockPercentage > 0)
+        {
+            cell.stockChange.text = String(format: "+%.2f%%", stockPercentage)
+            cell.stockChange.backgroundColor = .green
+        }
+        else
+        {
+            cell.stockChange.text = String(format: "%.2f%%", stockPercentage)
+            cell.stockChange.backgroundColor = .red
+        }
         
         return cell
     }
