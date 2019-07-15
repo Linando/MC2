@@ -8,6 +8,8 @@
 
 import Foundation
 
+let blueChipJSON = [jsonBBCA, jsonMSFT, jsonAAPL, jsonADBE, jsonASFI, jsonCHTR, jsonEHTH, jsonHLNE, jsonNDAQ, jsonSBUX]
+
 let jsonBBCA = """
 {
     "Meta Data": {
