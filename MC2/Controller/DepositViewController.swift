@@ -21,7 +21,7 @@ class DepositViewController: UIViewController {
         depositButton.alpha = 0.5
         //User Defaults
         let balance = UserDefaults.standard.integer(forKey: "balance")
-        balanceTotalLabel.text = "Rp. \(balance.formattedWithSeparator)"
+        balanceTotalLabel.text = "\(balance)"
     }
     
     
@@ -35,6 +35,7 @@ class DepositViewController: UIViewController {
     
     
     @IBAction func depositButtonTapped(_ sender: Any) {
+        print(balanceTotalLabel.text)
         let balance:Int = Int(balanceTotalLabel.text!)!
         let moneyInput:Int = Int(moneyTextField.text!)!
         balanceTotalLabel.text = "\(balance + moneyInput)"

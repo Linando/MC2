@@ -15,6 +15,9 @@ class StockViewController: UIViewController {
     @IBOutlet weak var midCapImageView: UIImageView!
     @IBOutlet weak var pennyStockImageView: UIImageView!
     @IBOutlet weak var balanceTotalLabel: UILabel!
+    @IBOutlet weak var blueChipButton: UIButton!
+    @IBOutlet weak var midCapButton: UIButton!
+    @IBOutlet weak var pennyStockButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         let balance = UserDefaults.standard.integer(forKey: "balance")
@@ -46,14 +49,36 @@ class StockViewController: UIViewController {
     
     @objc func tappedMidCap(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "blueChipSegue", sender: "")
+        self.performSegue(withIdentifier: "midCapSegue", sender: "")
     }
     
     @objc func tappedPennyStock(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "blueChipSegue", sender: "")
+        self.performSegue(withIdentifier: "pennyStockSegue", sender: "")
     }
 
+    @IBAction func blueChipButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "blueChipSegue", sender: "")
+    }
+    @IBAction func midCapButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "midCapSegue", sender: "")
+    }
+    @IBAction func pennyStockButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "pennyStockSegue", sender: "")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var vc = segue.destination as! BlueChipController
+        
+        if segue.identifier == "blueChipSegue"{
+            vc.titlePage = self.blueChipButton.titleLabel?.text! ?? ""
+        }else if segue.identifier == "midCapSegue"{
+            vc.titlePage = self.midCapButton.titleLabel?.text! ?? ""
+        }else if segue.identifier == "pennyStockSegue"{
+            vc.titlePage = self.pennyStockButton.titleLabel?.text! ?? ""
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

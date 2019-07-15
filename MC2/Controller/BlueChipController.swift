@@ -9,17 +9,20 @@
 import UIKit
 
 class BlueChipController: UIViewController {
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    var titlePage = ""
     
     var temp: [TimeSeries.StockDate] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = titlePage
         
         // Do any additional setup after loading the view.
     }
     
 }
-
 
 extension BlueChipController: UITableViewDelegate, UITableViewDataSource
 {
