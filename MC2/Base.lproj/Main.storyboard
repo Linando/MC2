@@ -407,7 +407,7 @@
         <!--Nama Stock-->
         <scene sceneID="y62-OX-psl">
             <objects>
-                <viewController title="Nama Stock" id="mhb-UZ-oPR" sceneMemberID="viewController">
+                <viewController title="Nama Stock" id="mhb-UZ-oPR" customClass="TableDetailViewController" customModule="MC2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NvS-XB-yZP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -416,13 +416,6 @@
                                 <rect key="frame" x="20" y="95" width="130" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <color key="textColor" red="0.94901960780000005" green="0.66666666669999997" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nama Stock Panjang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLz-yH-6d2">
-                                <rect key="frame" x="20" y="124" width="159" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.94901960780000005" green="0.66666666669999997" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -663,6 +656,13 @@
                         <color key="backgroundColor" red="0.062745098040000002" green="0.094117647060000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="h3s-SY-vLk"/>
                     </view>
+                    <connections>
+                        <outlet property="stockChangeLabel" destination="RkU-j7-rF3" id="Aow-gu-ZJj"/>
+                        <outlet property="stockNameLabel" destination="P6B-ng-Ey5" id="rZK-Ps-EYw"/>
+                        <outlet property="stockNameSellLabel" destination="Cum-0s-lTK" id="KIJ-7W-TIC"/>
+                        <outlet property="stockPriceLabel" destination="pRZ-x7-T8e" id="LCZ-9s-Ryt"/>
+                        <outlet property="totalBalanceLabel" destination="yMn-Ru-KFR" id="ogT-ON-Fw1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="It6-qq-LPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -816,7 +816,6 @@
         <image name="Chevron Right" width="13" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="koB-Tm-yfP"/>
         <segue reference="NFI-Ns-Z68"/>
         <segue reference="EgE-7r-oz5"/>
         <segue reference="sOp-RC-30V"/>

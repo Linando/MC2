@@ -10,6 +10,7 @@
 		68ECBF6922DC1E9C00CAF7CE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68ECBF6822DC1E9C00CAF7CE /* Extension.swift */; };
 		8A32EF0322D8457600EBC8BB /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32EF0222D8457600EBC8BB /* DepositViewController.swift */; };
 		8A32EF0522D84F2100EBC8BB /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32EF0422D84F2100EBC8BB /* StockViewController.swift */; };
+		8A32EF0722DD67BA00EBC8BB /* TableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32EF0622DD67BA00EBC8BB /* TableDetailViewController.swift */; };
 		D249FB6A22D4BCF600680BC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB6922D4BCF600680BC1 /* AppDelegate.swift */; };
 		D249FB6C22D4BCF600680BC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB6B22D4BCF600680BC1 /* ViewController.swift */; };
 		D249FB6F22D4BCF600680BC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D249FB6D22D4BCF600680BC1 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		68ECBF6822DC1E9C00CAF7CE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		8A32EF0222D8457600EBC8BB /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		8A32EF0422D84F2100EBC8BB /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
+		8A32EF0622DD67BA00EBC8BB /* TableDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDetailViewController.swift; sourceTree = "<group>"; };
 		D249FB6622D4BCF600680BC1 /* MC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D249FB6922D4BCF600680BC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D249FB6B22D4BCF600680BC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				D249FB6B22D4BCF600680BC1 /* ViewController.swift */,
 				D2915E1A22DC26FC00BFB201 /* BlueChipCell.swift */,
 				D2915E1C22DC271500BFB201 /* BlueChipController.swift */,
+				8A32EF0622DD67BA00EBC8BB /* TableDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A32EF0722DD67BA00EBC8BB /* TableDetailViewController.swift in Sources */,
 				D249FB8122D738EB00680BC1 /* stockAPIs.swift in Sources */,
 				D249FB8322D826CE00680BC1 /* PennyStockJSON.swift in Sources */,
 				D249FB6C22D4BCF600680BC1 /* ViewController.swift in Sources */,
