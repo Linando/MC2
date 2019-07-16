@@ -10,6 +10,10 @@ import UIKit
 import CoreData
 
 class TableDetailViewController: UIViewController {
+    let date = Date()
+    let format = DateFormatter()
+    var stockTransaction = [Transaction]()
+    
 
     @IBOutlet weak var stockNameLabel: UILabel!
     @IBOutlet weak var stockPriceLabel: UILabel!
@@ -48,8 +52,28 @@ class TableDetailViewController: UIViewController {
         {
             stockChangeLabel.backgroundColor = .red
         }
-        
         // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        
+        let managedContext = appDelegate?.persistentContainer.viewContext
+        
+        //2
+        var transactions = [Transaction]()
+        
+        
+        do {
+            transactions = try managedContext!.fetch(Transaction.fetchRequest())
+            var indexCounter = 0
+            for transaction in transactions{
+                if transaction.name == stockName
+                {
+                    stockTransaction.append(transaction)
+                    indexCounter+=1
+                }
+            }
+        } catch  {
+            print("Gagal Memanggil")
+        }
     }
     
     
@@ -57,12 +81,13 @@ class TableDetailViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
-        let buy = Buy(context: managedContext)
+        let transaction = Transaction(context: managedContext)
         
-        buy.name = stockName
-        buy.price = stockPrice
-        buy.amount = Int64(buyAmountTextField.text!)!
-        buy.date = Date()
+        transaction.name = stockName
+        transaction.price = stockPrice
+        transaction.amount = Int64(buyAmountTextField.text!)!
+        transaction.date = Date()
+        transaction.type = "Buy"
         
         do {
             try managedContext.save()
@@ -79,12 +104,13 @@ class TableDetailViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
-        let sell = Sell(context: managedContext)
+        let transaction = Transaction(context: managedContext)
         
-        sell.name = stockName
-        sell.price = stockPrice
-        sell.amount = Int64(sellAmountTextField.text!)!
-        sell.date = Date()
+        transaction.name = stockName
+        transaction.price = stockPrice
+        transaction.amount = Int64(sellAmountTextField.text!)!
+        transaction.date = Date()
+        transaction.type = "Sell"
         
         do {
             try managedContext.save()
@@ -103,6 +129,31 @@ class TableDetailViewController: UIViewController {
         sellButton.isEnabled = true
         sellButton.alpha = 1
     }
+    
+    
+    
+//    func sellData () {
+//
+//        //1
+//        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//
+//        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+//
+//        //2
+//        var users = [User]()
+//
+//        do {
+//            users = try managedContext.fetch(User.fetchRequest())
+//            for user in users {
+//                let name = user.name
+//                let age = user.age
+//                nameLabel.text! += "\(name!) \(age), "
+//                print(name!)
+//            }
+//        } catch  {
+//            print("Gagal Memanggil")
+//        }
+//    }
     /*
      // MARK: - Navigation
 
@@ -113,4 +164,26 @@ class TableDetailViewController: UIViewController {
     }
     */
 
+}
+
+
+extension TableDetailViewController: UITableViewDelegate, UITableViewDataSource
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stockTransaction.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell") as! TransactionCell
+        format.dateFormat = "yyyy-MM-dd"
+        let formattedDate = format.string(from: date)
+        
+        cell.dateLabel.text = formattedDate
+        //cell.typeLabel.text =
+        cell.priceLabel.text = "\(stockTransaction[indexPath.row].price)"
+        cell.amountLabel.text = "\(stockTransaction[indexPath.row].amount)"
+        
+        return cell
+    }
+    
 }

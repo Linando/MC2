@@ -58,12 +58,12 @@ class BlueChipController: UIViewController {
 
 extension BlueChipController: UITableViewDelegate, UITableViewDataSource
 {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "BlueChipCell") as! BlueChipCell
         
         if titlePage == "Blue Chip" {
