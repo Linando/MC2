@@ -471,6 +471,9 @@
                                 <state key="normal" title="Buy">
                                     <color key="titleColor" red="0.062745098040000002" green="0.094117647060000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="buyButtonTapped:" destination="mhb-UZ-oPR" eventType="touchUpInside" id="Q1e-R6-IQS"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vVk-yB-xwP">
                                 <rect key="frame" x="207" y="309" width="1" height="164"/>
@@ -513,6 +516,9 @@
                                 <state key="normal" title="Sell">
                                     <color key="titleColor" red="0.062745098040000002" green="0.094117647060000004" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="sellButtonTapped:" destination="mhb-UZ-oPR" eventType="touchUpInside" id="p59-1A-6wE"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0L-rx-lMu">
                                 <rect key="frame" x="20" y="471" width="69" height="24"/>
@@ -609,6 +615,8 @@
                         <viewLayoutGuide key="safeArea" id="h3s-SY-vLk"/>
                     </view>
                     <connections>
+                        <outlet property="buyAmountTextField" destination="kkJ-Xh-GF7" id="SEe-7m-PA7"/>
+                        <outlet property="sellAmountTextField" destination="IZD-M4-SNE" id="9rY-S5-o7u"/>
                         <outlet property="stockChangeLabel" destination="RkU-j7-rF3" id="Aow-gu-ZJj"/>
                         <outlet property="stockNameLabel" destination="P6B-ng-Ey5" id="rZK-Ps-EYw"/>
                         <outlet property="stockNameSellLabel" destination="Cum-0s-lTK" id="KIJ-7W-TIC"/>
