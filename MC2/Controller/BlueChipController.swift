@@ -19,7 +19,13 @@ class BlueChipController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = titlePage
-        
+        if self.title == "Blue Chip"{
+            descriptionLabel.text = "Blue chip : denoting companies or their shares considered to be a reliable investment, though less secure than gilt-edged stock."
+        }else if self.title == "Mid-Cap"{
+            descriptionLabel.text = "Mid-cap is the term given to companies with a market capitalization (value) between $150 and $800 million."
+        }else if self.title == "Penny Stock"{
+            descriptionLabel.text = "Penny stock : a common stock valued at less than one dollar, and therefore highly speculative."
+        }
     
         
         // Do any additional setup after loading the view.
