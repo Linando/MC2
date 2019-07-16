@@ -68,13 +68,14 @@ class StockViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var vc = segue.destination as! BlueChipController
-        
         if segue.identifier == "blueChipSegue"{
+            var vc = segue.destination as! BlueChipController
             vc.titlePage = self.blueChipButton.titleLabel?.text! ?? ""
         }else if segue.identifier == "midCapSegue"{
+            var vc = segue.destination as! BlueChipController
             vc.titlePage = self.midCapButton.titleLabel?.text! ?? ""
         }else if segue.identifier == "pennyStockSegue"{
+            var vc = segue.destination as! BlueChipController
             vc.titlePage = self.pennyStockButton.titleLabel?.text! ?? ""
         }
     }
