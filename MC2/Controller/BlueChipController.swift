@@ -113,12 +113,13 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
         if(stockPercentage > 0)
         {
             cell.stockChange.text = String(format: "+%.2f%%", stockPercentage)
-            cell.stockChange.backgroundColor = .green
+            cell.stockChange.textColor = .init(red: 0, green: 0.9, blue: 0, alpha: 1)
+            //cell.stockChange.font = UIFont.boldSystemFont(ofSize: 17)
         }
         else
         {
             cell.stockChange.text = String(format: "%.2f%%", stockPercentage)
-            cell.stockChange.backgroundColor = .red
+            cell.stockChange.textColor = .red
         }
         
         return cell

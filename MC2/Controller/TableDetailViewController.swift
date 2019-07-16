@@ -36,7 +36,15 @@ class TableDetailViewController: UIViewController {
         totalBalanceLabel.text = "\(money)"
         stockNameLabel.text = stockName
         stockPriceLabel.text = "\(stockPrice)"
-        stockChangeLabel.text = "\(stockPercentage)"
+        if(stockPercentage > 0)
+        {
+            stockChangeLabel.text = String(format: "+%.2f%%", stockPercentage)
+        }
+        else
+        {
+            stockChangeLabel.text = String(format: "%.2f%%", stockPercentage)
+        }
+        
         stockNameSellLabel.text = stockName
         
         buyButton.isEnabled = false
@@ -46,11 +54,11 @@ class TableDetailViewController: UIViewController {
         
         if(stockPercentage > 0)
         {
-            stockChangeLabel.backgroundColor = .green
+            stockChangeLabel.textColor = .init(red: 0, green: 0.9, blue: 0, alpha: 1)
         }
         else
         {
-            stockChangeLabel.backgroundColor = .red
+            stockChangeLabel.textColor = .red
         }
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -64,13 +72,23 @@ class TableDetailViewController: UIViewController {
         do {
             transactions = try managedContext!.fetch(Transaction.fetchRequest())
             var indexCounter = 0
+            var stockAmount: Int64 = 0
             for transaction in transactions{
                 if transaction.name == stockName
                 {
                     stockTransaction.append(transaction)
                     indexCounter+=1
+                    if(transaction.type == "Buy")
+                    {
+                        stockAmount += transaction.amount
+                    }
+                    else
+                    {
+                        stockAmount -= transaction.amount
+                    }
                 }
             }
+            stockAmountLabel.text = "\(stockAmount)"
         } catch  {
             print("Gagal Memanggil")
         }
@@ -98,6 +116,21 @@ class TableDetailViewController: UIViewController {
         buyAmountTextField.text = ""
         buyButton.isEnabled = false
         buyButton.alpha = 0.8
+        
+        var stockAmount: Int64 = 0
+        for amountTransaction in stockTransaction
+        {
+            if(amountTransaction.type == "Buy")
+            {
+                stockAmount += amountTransaction.amount
+            }
+            else
+            {
+                stockAmount -= amountTransaction.amount
+            }
+        }
+        stockAmount += transaction.amount
+        stockAmountLabel.text = "\(stockAmount)"
     }
     
      @IBAction func sellButtonTapped(_ sender: Any) {
@@ -120,6 +153,23 @@ class TableDetailViewController: UIViewController {
         sellAmountTextField.text = ""
         sellButton.isEnabled = false
         sellButton.alpha = 0.8
+        
+        var stockAmount: Int64 = 0
+        for amountTransaction in stockTransaction
+        {
+            if(amountTransaction.type == "Buy")
+            {
+                stockAmount += amountTransaction.amount
+            }
+            else
+            {
+                stockAmount -= amountTransaction.amount
+            }
+            
+        }
+        stockAmount -= transaction.amount
+        stockAmountLabel.text = "\(stockAmount)"
+        
      }
     @IBAction func buyTextFieldEditingChanged(_ sender: Any) {
         buyButton.isEnabled = true
@@ -131,39 +181,6 @@ class TableDetailViewController: UIViewController {
     }
     
     
-    
-//    func sellData () {
-//
-//        //1
-//        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-//
-//        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
-//
-//        //2
-//        var users = [User]()
-//
-//        do {
-//            users = try managedContext.fetch(User.fetchRequest())
-//            for user in users {
-//                let name = user.name
-//                let age = user.age
-//                nameLabel.text! += "\(name!) \(age), "
-//                print(name!)
-//            }
-//        } catch  {
-//            print("Gagal Memanggil")
-//        }
-//    }
-    /*
-     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
@@ -179,7 +196,7 @@ extension TableDetailViewController: UITableViewDelegate, UITableViewDataSource
         let formattedDate = format.string(from: date)
         
         cell.dateLabel.text = formattedDate
-        //cell.typeLabel.text =
+        cell.typeLabel.text = stockTransaction[indexPath.row].type
         cell.priceLabel.text = "\(stockTransaction[indexPath.row].price)"
         cell.amountLabel.text = "\(stockTransaction[indexPath.row].amount)"
         
