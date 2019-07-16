@@ -462,6 +462,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="buyTextFieldEditingChanged:" destination="mhb-UZ-oPR" eventType="editingChanged" id="tB1-CP-wsm"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nT6-Az-dDd">
                                 <rect key="frame" x="20" y="433" width="152" height="30"/>
@@ -507,6 +510,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="sellTextFieldEditingChanged:" destination="mhb-UZ-oPR" eventType="editingDidEnd" id="aBv-rO-Hvw"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keN-7h-fqV">
                                 <rect key="frame" x="242" y="433" width="152" height="30"/>
@@ -616,7 +622,10 @@
                     </view>
                     <connections>
                         <outlet property="buyAmountTextField" destination="kkJ-Xh-GF7" id="SEe-7m-PA7"/>
+                        <outlet property="buyButton" destination="nT6-Az-dDd" id="l52-iP-BGX"/>
                         <outlet property="sellAmountTextField" destination="IZD-M4-SNE" id="9rY-S5-o7u"/>
+                        <outlet property="sellButton" destination="keN-7h-fqV" id="1RZ-fv-WKk"/>
+                        <outlet property="stockAmountLabel" destination="Oio-IJ-qzH" id="Xou-bu-URr"/>
                         <outlet property="stockChangeLabel" destination="RkU-j7-rF3" id="Aow-gu-ZJj"/>
                         <outlet property="stockNameLabel" destination="P6B-ng-Ey5" id="rZK-Ps-EYw"/>
                         <outlet property="stockNameSellLabel" destination="Cum-0s-lTK" id="KIJ-7W-TIC"/>

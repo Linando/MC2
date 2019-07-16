@@ -16,7 +16,10 @@ class TableDetailViewController: UIViewController {
     @IBOutlet weak var stockChangeLabel: UILabel!
     @IBOutlet weak var totalBalanceLabel: UILabel!
     @IBOutlet weak var stockNameSellLabel: UILabel!
+    @IBOutlet weak var stockAmountLabel: UILabel!
     
+    @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet weak var sellButton: UIButton!
     @IBOutlet weak var buyAmountTextField: UITextField!
     @IBOutlet weak var sellAmountTextField: UITextField!
     var money:Int = 0
@@ -31,6 +34,11 @@ class TableDetailViewController: UIViewController {
         stockPriceLabel.text = "\(stockPrice)"
         stockChangeLabel.text = "\(stockPercentage)"
         stockNameSellLabel.text = stockName
+        
+        buyButton.isEnabled = false
+        buyButton.alpha = 0.8
+        sellButton.isEnabled = false
+        sellButton.alpha = 0.8
         
         if(stockPercentage > 0)
         {
@@ -61,6 +69,10 @@ class TableDetailViewController: UIViewController {
         } catch  {
             print("gagal menyimpan")
         }
+        
+        buyAmountTextField.text = ""
+        buyButton.isEnabled = false
+        buyButton.alpha = 0.8
     }
     
      @IBAction func sellButtonTapped(_ sender: Any) {
@@ -79,7 +91,18 @@ class TableDetailViewController: UIViewController {
         } catch  {
             print("gagal menyimpan")
         }
+        sellAmountTextField.text = ""
+        sellButton.isEnabled = false
+        sellButton.alpha = 0.8
      }
+    @IBAction func buyTextFieldEditingChanged(_ sender: Any) {
+        buyButton.isEnabled = true
+        buyButton.alpha = 1
+    }
+    @IBAction func sellTextFieldEditingChanged(_ sender: Any) {
+        sellButton.isEnabled = true
+        sellButton.alpha = 1
+    }
     /*
      // MARK: - Navigation
 
