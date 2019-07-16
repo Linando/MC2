@@ -18,13 +18,14 @@ class TableDetailViewController: UIViewController {
     
     var money:Int = 0
     var stockName = ""
-    var stockPrice:Int = 0
+    var stockPrice:Float = 0
     var stockChange:Float = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         totalBalanceLabel.text = "\(money)"
         stockNameLabel.text = stockName
+        stockPriceLabel.text = "\(stockPrice)"
         // Do any additional setup after loading the view.
     }
     

@@ -16,6 +16,12 @@ class BlueChipController: UIViewController {
     var jsonCounter = 98
     var stockPercentage: Float = 0
     var sortedStock: [TimeSeries.StockDate] = []
+    var blueChipPrice: [Float] = []
+    var blueChipPercentage: [Float] = []
+    var midCapPrice: [Float] = []
+    var midCapPercentage: [Float] = []
+    var pennyStockPrice: [Float] = []
+    var pennyStockPercentage: [Float] = []
     
     
     override func viewDidLoad() {
@@ -65,6 +71,9 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
                 let decodedStock = try JSONDecoder().decode(Stock.self, from: blueChipJSON[indexPath.row])
                 sortedStock = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
                 cell.stockSymbol.text = blueChipSymbol[indexPath.row]
+                blueChipPrice.append(Float(sortedStock[jsonCounter].open)!)
+                stockPercentage = (Float(sortedStock[jsonCounter].open)! - Float(sortedStock[jsonCounter+1].open)!) * 100 / Float(sortedStock[jsonCounter+1].open)!
+                blueChipPercentage.append(stockPercentage)
                 
             } catch let jsonErr{
                 print("Error serializing json: ", jsonErr)
@@ -76,6 +85,9 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
                 let decodedStock = try JSONDecoder().decode(Stock.self, from: midCapJSON[indexPath.row])
                 sortedStock = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
                 cell.stockSymbol.text = midCapSymbol[indexPath.row]
+                midCapPrice.append(Float(sortedStock[jsonCounter].open)!)
+                stockPercentage = (Float(sortedStock[jsonCounter].open)! - Float(sortedStock[jsonCounter+1].open)!) * 100 / Float(sortedStock[jsonCounter+1].open)!
+                midCapPercentage.append(stockPercentage)
             } catch let jsonErr{
                 print("Error serializing json: ", jsonErr)
             }
@@ -87,6 +99,9 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
                 let decodedStock = try JSONDecoder().decode(Stock.self, from: pennyStockJSON[indexPath.row])
                 sortedStock = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
                 cell.stockSymbol.text = pennyStockSymbol[indexPath.row]
+                pennyStockPrice.append(Float(sortedStock[jsonCounter].open)!)
+                stockPercentage = (Float(sortedStock[jsonCounter].open)! - Float(sortedStock[jsonCounter+1].open)!) * 100 / Float(sortedStock[jsonCounter+1].open)!
+                pennyStockPercentage.append(stockPercentage)
                 
             } catch let jsonErr{
                 print("Error serializing json: ", jsonErr)
@@ -94,7 +109,7 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
             
         }
         cell.stockPrice.text = sortedStock[jsonCounter].open
-        stockPercentage = (Float(sortedStock[jsonCounter].open)! - Float(sortedStock[jsonCounter+1].open)!) * 100 / Float(sortedStock[jsonCounter+1].open)!
+        
         if(stockPercentage > 0)
         {
             cell.stockChange.text = String(format: "+%.2f%%", stockPercentage)
@@ -113,16 +128,19 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
         if self.title == "Blue Chip"{
             print("masuk blue chip")
             vc?.stockName = blueChipSymbol[indexPath.row]
+            vc?.stockPrice = blueChipPrice[indexPath.row]
             vc!.money = money
             self.navigationController?.pushViewController(vc!, animated: true)
         }else if self.title == "Mid-Cap"{
             print("masuk midcap")
             vc?.stockName = midCapSymbol[indexPath.row]
+            vc?.stockPrice = midCapPrice[indexPath.row]
             vc!.money = money
             self.navigationController?.pushViewController(vc!, animated: true)
         }else if self.title == "Penny Stock"{
             print("masuk penny stock")
             vc?.stockName = pennyStockSymbol[indexPath.row]
+            vc?.stockPrice = pennyStockPrice[indexPath.row]
             vc!.money = money
             self.navigationController?.pushViewController(vc!, animated: true)
         }
