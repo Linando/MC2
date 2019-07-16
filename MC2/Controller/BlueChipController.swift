@@ -126,21 +126,21 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var vc = storyboard?.instantiateViewController(withIdentifier: "TableDetailViewController") as? TableDetailViewController
         if self.title == "Blue Chip"{
-            print("masuk blue chip")
             vc?.stockName = blueChipSymbol[indexPath.row]
             vc?.stockPrice = blueChipPrice[indexPath.row]
+            vc?.stockPercentage = blueChipPercentage[indexPath.row]
             vc!.money = money
             self.navigationController?.pushViewController(vc!, animated: true)
         }else if self.title == "Mid-Cap"{
-            print("masuk midcap")
             vc?.stockName = midCapSymbol[indexPath.row]
             vc?.stockPrice = midCapPrice[indexPath.row]
+            vc?.stockPercentage = midCapPercentage[indexPath.row]
             vc!.money = money
             self.navigationController?.pushViewController(vc!, animated: true)
         }else if self.title == "Penny Stock"{
-            print("masuk penny stock")
             vc?.stockName = pennyStockSymbol[indexPath.row]
             vc?.stockPrice = pennyStockPrice[indexPath.row]
+            vc?.stockPercentage = pennyStockPercentage[indexPath.row]
             vc!.money = money
             self.navigationController?.pushViewController(vc!, animated: true)
         }
