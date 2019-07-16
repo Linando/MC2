@@ -24,6 +24,7 @@ class TableDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         totalBalanceLabel.text = "\(money)"
+        stockNameLabel.text = stockName
         // Do any additional setup after loading the view.
     }
     

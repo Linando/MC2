@@ -382,7 +382,6 @@
                                             <outlet property="stockChange" destination="y9u-qM-zHV" id="AEr-fb-ydg"/>
                                             <outlet property="stockPrice" destination="fJO-st-ZKK" id="Ypv-07-CyS"/>
                                             <outlet property="stockSymbol" destination="VBR-Ib-AQI" id="l49-vd-CHm"/>
-                                            <segue destination="mhb-UZ-oPR" kind="show" identifier="tableDetailSegue" id="EgE-7r-oz5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -398,6 +397,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="fN6-xL-evG" id="yub-ex-4Wo"/>
+                        <segue destination="mhb-UZ-oPR" kind="show" identifier="tableDetailSegue" id="b44-fS-KiT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sdX-kt-74S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -407,7 +407,7 @@
         <!--Nama Stock-->
         <scene sceneID="y62-OX-psl">
             <objects>
-                <viewController title="Nama Stock" id="mhb-UZ-oPR" customClass="TableDetailViewController" customModule="MC2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableDetailViewController" title="Nama Stock" id="mhb-UZ-oPR" customClass="TableDetailViewController" customModule="MC2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NvS-XB-yZP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -817,7 +817,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NFI-Ns-Z68"/>
-        <segue reference="EgE-7r-oz5"/>
+        <segue reference="b44-fS-KiT"/>
         <segue reference="sOp-RC-30V"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,6 +17,7 @@ class BlueChipController: UIViewController {
     var stockPercentage: Float = 0
     var sortedStock: [TimeSeries.StockDate] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,14 +46,6 @@ class BlueChipController: UIViewController {
     
         
         // Do any additional setup after loading the view.
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "tableDetailSegue"{
-            var vc = segue.destination as! TableDetailViewController
-            vc.money = money
-            
-        }
     }
     
 }
@@ -114,5 +107,25 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
         }
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var vc = storyboard?.instantiateViewController(withIdentifier: "TableDetailViewController") as? TableDetailViewController
+        if self.title == "Blue Chip"{
+            print("masuk blue chip")
+            vc?.stockName = blueChipSymbol[indexPath.row]
+            vc!.money = money
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }else if self.title == "Mid-Cap"{
+            print("masuk midcap")
+            vc?.stockName = midCapSymbol[indexPath.row]
+            vc!.money = money
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }else if self.title == "Penny Stock"{
+            print("masuk penny stock")
+            vc?.stockName = pennyStockSymbol[indexPath.row]
+            vc!.money = money
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        
     }
 }
