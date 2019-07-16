@@ -12,6 +12,7 @@ class BlueChipController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     var titlePage = ""
+    var money:Int = 0
     var jsonCounter = 98
     var stockPercentage: Float = 0
     var sortedStock: [TimeSeries.StockDate] = []
@@ -44,6 +45,14 @@ class BlueChipController: UIViewController {
     
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tableDetailSegue"{
+            var vc = segue.destination as! TableDetailViewController
+            vc.money = money
+            
+        }
     }
     
 }

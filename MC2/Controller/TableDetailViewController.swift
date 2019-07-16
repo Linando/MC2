@@ -15,9 +15,15 @@ class TableDetailViewController: UIViewController {
     @IBOutlet weak var stockChangeLabel: UILabel!
     @IBOutlet weak var totalBalanceLabel: UILabel!
     @IBOutlet weak var stockNameSellLabel: UILabel!
+    
+    var money:Int = 0
+    var stockName = ""
+    var stockPrice:Int = 0
+    var stockChange:Float = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        totalBalanceLabel.text = "\(money)"
         // Do any additional setup after loading the view.
     }
     
