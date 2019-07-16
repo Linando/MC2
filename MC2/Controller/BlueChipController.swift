@@ -18,6 +18,21 @@ class BlueChipController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        if(UserDefaults.standard.object(forKey: "lastLoginDate") != nil)
+        {
+            let dateStart = calendar.startOfDay(for: UserDefaults.standard.object(forKey: "lastLoginDate") as! Date)
+            let dateEnd = calendar.startOfDay(for: date)
+            
+            let differenceInDay = calendar.dateComponents([.day], from: dateStart, to: dateEnd).day
+            if(date != (UserDefaults.standard.object(forKey: "lastLoginDate") as! Date))
+            {
+                jsonCounter += differenceInDay!
+            }
+        }
+        UserDefaults.standard.set(date, forKey: "lastLoginDate")
         self.title = titlePage
         if self.title == "Blue Chip"{
             descriptionLabel.text = "Blue chip : denoting companies or their shares considered to be a reliable investment, though less secure than gilt-edged stock."
