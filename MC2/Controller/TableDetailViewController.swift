@@ -15,6 +15,7 @@ class TableDetailViewController: UIViewController {
     var stockTransaction = [Transaction]()
     
 
+    
     @IBOutlet weak var stockNameLabel: UILabel!
     @IBOutlet weak var stockPriceLabel: UILabel!
     @IBOutlet weak var stockChangeLabel: UILabel!

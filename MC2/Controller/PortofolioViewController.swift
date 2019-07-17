@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class PortofolioViewController: UIViewController {
 
     @IBOutlet weak var balanceLabel: UILabel!
@@ -15,16 +17,44 @@ class PortofolioViewController: UIViewController {
     @IBOutlet weak var totalMarketValLabel: UILabel!
     @IBOutlet weak var unrealizedGainLossLabel: UILabel!
     @IBOutlet weak var netAssetLabel: UILabel!
+    
+    var sortedTodayStock: [TimeSeries.StockDate] = []
+    var todayBlueChipPrice: [Float] = []
+    var todayMidCapPrice: [Float] = []
+    var todayPennyStockPrice: [Float] = []
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
+        let date = Date()
+        let calendar = Calendar.current
+        let dateStart = calendar.startOfDay(for: UserDefaults.standard.object(forKey: "lastLoginDate") as! Date)
+        let dateEnd = calendar.startOfDay(for: date)
         
+        let differenceInDay = calendar.dateComponents([.day], from: dateStart, to: dateEnd).day
         let balance = UserDefaults.standard.integer(forKey: "balance")
         if balance > 0{
             
             balanceLabel.text = "\(balance)"
         }else{
             balanceLabel.text = "0"
+        }
+        
+        for i in 0...9
+        {
+            do {
+                let decodedBlueChip = try JSONDecoder().decode(Stock.self, from: blueChipJSON[i])
+                sortedTodayStock = decodedBlueChip.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
+                todayBlueChipPrice.append(Float(sortedTodayStock[98-differenceInDay!].open)!)
+                let decodedMidCap = try JSONDecoder().decode(Stock.self, from: midCapJSON[i])
+                sortedTodayStock = decodedMidCap.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
+                todayMidCapPrice.append(Float(sortedTodayStock[98-differenceInDay!].open)!)
+                let decodedPennyStock = try JSONDecoder().decode(Stock.self, from: pennyStockJSON[i])
+                sortedTodayStock = decodedPennyStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
+                todayPennyStockPrice.append(Float(sortedTodayStock[98-differenceInDay!].open)!)
+            } catch let err{
+                print("Gagal decode harga hari ini", err)
+            }
         }
         
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -37,14 +67,49 @@ class PortofolioViewController: UIViewController {
         
         do {
             transactions = try managedContext!.fetch(Transaction.fetchRequest())
-            var indexCounter = 0
-            var stockAmount: Int64 = 0
             var totalBuyValue: Float = 0
+            var totalMarketValue: Float = 0
             for transaction in transactions{
-                totalBuyValue += Float(transaction.amount) * transaction.price
+                if(transaction.type == "Buy")
+                {
+                    totalBuyValue += Float(transaction.amount) * transaction.price
+                    
+                    if((blueChipSymbol.firstIndex(of: transaction.name!)) != nil)
+                    {
+                        totalMarketValue += Float(transaction.amount) * todayBlueChipPrice[blueChipSymbol.firstIndex(of: transaction.name!)!]
+                    }
+                    if((midCapSymbol.firstIndex(of: transaction.name!)) != nil)
+                    {
+                        totalMarketValue += Float(transaction.amount) * todayBlueChipPrice[midCapSymbol.firstIndex(of: transaction.name!)!]
+                    }
+                    if((pennyStockSymbol.firstIndex(of: transaction.name!)) != nil)
+                    {
+                        totalMarketValue += Float(transaction.amount) * todayBlueChipPrice[pennyStockSymbol.firstIndex(of: transaction.name!)!]
+                    }
+                }
+                else
+                {
+                    totalBuyValue -= Float(transaction.amount) * transaction.price
+                    if((blueChipSymbol.firstIndex(of: transaction.name!)) != nil)
+                    {
+                        totalMarketValue -= Float(transaction.amount) * todayBlueChipPrice[blueChipSymbol.firstIndex(of: transaction.name!)!]
+                    }
+                    if((midCapSymbol.firstIndex(of: transaction.name!)) != nil)
+                    {
+                        totalMarketValue -= Float(transaction.amount) * todayBlueChipPrice[midCapSymbol.firstIndex(of: transaction.name!)!]
+                    }
+                    if((pennyStockSymbol.firstIndex(of: transaction.name!)) != nil)
+                    {
+                        totalMarketValue -= Float(transaction.amount) * todayBlueChipPrice[pennyStockSymbol.firstIndex(of: transaction.name!)!]
+                    }
+                }
+                
             }
-            print(totalBuyValue)
             totalBuyValLabel.text = "\(totalBuyValue)"
+            totalMarketValLabel.text = "\(totalMarketValue)"
+            unrealizedGainLossLabel.text = "\(totalMarketValue-totalBuyValue)"
+            netAssetLabel.text = "\(Float(balance) + totalMarketValue)"
+            
         } catch  {
             print("Gagal Memanggil")
         }

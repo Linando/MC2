@@ -37,7 +37,7 @@ class BlueChipController: UIViewController {
             let differenceInDay = calendar.dateComponents([.day], from: dateStart, to: dateEnd).day
             if(date != (UserDefaults.standard.object(forKey: "lastLoginDate") as! Date))
             {
-                jsonCounter += differenceInDay!
+                jsonCounter -= differenceInDay!
             }
         }
         UserDefaults.standard.set(date, forKey: "lastLoginDate")
@@ -51,7 +51,6 @@ class BlueChipController: UIViewController {
         }
     
         
-        // Do any additional setup after loading the view.
     }
     
 }
@@ -68,8 +67,8 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
         
         if titlePage == "Blue Chip" {
             do{
-                let decodedStock = try JSONDecoder().decode(Stock.self, from: blueChipJSON[indexPath.row])
-                sortedStock = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
+                let decodedBlueChip = try JSONDecoder().decode(Stock.self, from: blueChipJSON[indexPath.row])
+                sortedStock = decodedBlueChip.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
                 cell.stockSymbol.text = blueChipSymbol[indexPath.row]
                 blueChipPrice.append(Float(sortedStock[jsonCounter].open)!)
                 stockPercentage = (Float(sortedStock[jsonCounter].open)! - Float(sortedStock[jsonCounter+1].open)!) * 100 / Float(sortedStock[jsonCounter+1].open)!
@@ -82,8 +81,8 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
         else if titlePage == "Mid-Cap"
         {
             do{
-                let decodedStock = try JSONDecoder().decode(Stock.self, from: midCapJSON[indexPath.row])
-                sortedStock = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
+                let decodedMidCap = try JSONDecoder().decode(Stock.self, from: midCapJSON[indexPath.row])
+                sortedStock = decodedMidCap.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
                 cell.stockSymbol.text = midCapSymbol[indexPath.row]
                 midCapPrice.append(Float(sortedStock[jsonCounter].open)!)
                 stockPercentage = (Float(sortedStock[jsonCounter].open)! - Float(sortedStock[jsonCounter+1].open)!) * 100 / Float(sortedStock[jsonCounter+1].open)!
@@ -96,8 +95,8 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
         else if titlePage == "Penny Stock"
         {
             do{
-                let decodedStock = try JSONDecoder().decode(Stock.self, from: pennyStockJSON[indexPath.row])
-                sortedStock = decodedStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
+                let decodedPennyStock = try JSONDecoder().decode(Stock.self, from: pennyStockJSON[indexPath.row])
+                sortedStock = decodedPennyStock.timeSeries.stockDates.sorted(by: { $0.date > $1.date })
                 cell.stockSymbol.text = pennyStockSymbol[indexPath.row]
                 pennyStockPrice.append(Float(sortedStock[jsonCounter].open)!)
                 stockPercentage = (Float(sortedStock[jsonCounter].open)! - Float(sortedStock[jsonCounter+1].open)!) * 100 / Float(sortedStock[jsonCounter+1].open)!
