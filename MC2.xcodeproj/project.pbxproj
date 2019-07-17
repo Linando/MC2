@@ -23,6 +23,7 @@
 		D249FB8322D826CE00680BC1 /* PennyStockJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB8222D826CE00680BC1 /* PennyStockJSON.swift */; };
 		D249FB8522D8294E00680BC1 /* BlueChipJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB8422D8294E00680BC1 /* BlueChipJSON.swift */; };
 		D249FB8722D8295D00680BC1 /* MidCapJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB8622D8295D00680BC1 /* MidCapJSON.swift */; };
+		D25620D822DECDAA00C27D36 /* PortofolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25620D722DECDAA00C27D36 /* PortofolioViewController.swift */; };
 		D2915E1B22DC26FC00BFB201 /* BlueChipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2915E1A22DC26FC00BFB201 /* BlueChipCell.swift */; };
 		D2915E1D22DC271500BFB201 /* BlueChipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2915E1C22DC271500BFB201 /* BlueChipController.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		D249FB8222D826CE00680BC1 /* PennyStockJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PennyStockJSON.swift; sourceTree = "<group>"; };
 		D249FB8422D8294E00680BC1 /* BlueChipJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueChipJSON.swift; sourceTree = "<group>"; };
 		D249FB8622D8295D00680BC1 /* MidCapJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidCapJSON.swift; sourceTree = "<group>"; };
+		D25620D722DECDAA00C27D36 /* PortofolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortofolioViewController.swift; sourceTree = "<group>"; };
 		D2915E1A22DC26FC00BFB201 /* BlueChipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueChipCell.swift; sourceTree = "<group>"; };
 		D2915E1C22DC271500BFB201 /* BlueChipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueChipController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				8A32EF0222D8457600EBC8BB /* DepositViewController.swift */,
+				D25620D722DECDAA00C27D36 /* PortofolioViewController.swift */,
 				8A32EF0422D84F2100EBC8BB /* StockViewController.swift */,
 				D249FB6B22D4BCF600680BC1 /* ViewController.swift */,
 				D2915E1A22DC26FC00BFB201 /* BlueChipCell.swift */,
@@ -203,6 +206,7 @@
 				D249FB8322D826CE00680BC1 /* PennyStockJSON.swift in Sources */,
 				D249FB6C22D4BCF600680BC1 /* ViewController.swift in Sources */,
 				D2915E1D22DC271500BFB201 /* BlueChipController.swift in Sources */,
+				D25620D822DECDAA00C27D36 /* PortofolioViewController.swift in Sources */,
 				D249FB8722D8295D00680BC1 /* MidCapJSON.swift in Sources */,
 				68ECBF6922DC1E9C00CAF7CE /* Extension.swift in Sources */,
 				D2915E1B22DC26FC00BFB201 /* BlueChipCell.swift in Sources */,
@@ -359,7 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RZHN8D842K;
+				DEVELOPMENT_TEAM = 5538968945;
 				INFOPLIST_FILE = MC2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -377,7 +381,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RZHN8D842K;
+				DEVELOPMENT_TEAM = 5538968945;
 				INFOPLIST_FILE = MC2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

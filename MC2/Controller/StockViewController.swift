@@ -18,8 +18,8 @@ class StockViewController: UIViewController {
     @IBOutlet weak var blueChipButton: UIButton!
     @IBOutlet weak var midCapButton: UIButton!
     @IBOutlet weak var pennyStockButton: UIButton!
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         let balance = UserDefaults.standard.integer(forKey: "balance")
         if balance > 0{
             
@@ -71,15 +71,15 @@ class StockViewController: UIViewController {
         if segue.identifier == "blueChipSegue"{
             var vc = segue.destination as! BlueChipController
             vc.titlePage = self.blueChipButton.titleLabel?.text! ?? ""
-            vc.money = Int(balanceTotalLabel.text!)!
+            vc.money = Float(balanceTotalLabel.text!)!
         }else if segue.identifier == "midCapSegue"{
             var vc = segue.destination as! BlueChipController
             vc.titlePage = self.midCapButton.titleLabel?.text! ?? ""
-            vc.money = Int(balanceTotalLabel.text!)!
+            vc.money = Float(balanceTotalLabel.text!)!
         }else if segue.identifier == "pennyStockSegue"{
             var vc = segue.destination as! BlueChipController
             vc.titlePage = self.pennyStockButton.titleLabel?.text! ?? ""
-            vc.money = Int(balanceTotalLabel.text!)!
+            vc.money = Float(balanceTotalLabel.text!)!
         }
     }
     

@@ -43,6 +43,21 @@ class DepositViewController: UIViewController {
         moneyTextField.text = ""
         depositButton.isEnabled = false
         depositButton.alpha = 0.5
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return  }
+        
+        let user = User(context: managedContext)
+        
+        user.balance = Float(balance + moneyInput)
+        
+        do {
+            try managedContext.save()
+            print("Berhasil di simpan")
+        } catch  {
+            print("Gagal menyimpan")
+        }
+        
     }
     
     

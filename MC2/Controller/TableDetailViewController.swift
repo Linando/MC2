@@ -28,13 +28,15 @@ class TableDetailViewController: UIViewController {
     @IBOutlet weak var sellButton: UIButton!
     @IBOutlet weak var buyAmountTextField: UITextField!
     @IBOutlet weak var sellAmountTextField: UITextField!
-    var money:Int = 0
+    var money: Float = 0
     var stockName = ""
     var stockPrice:Float = 0
     var stockPercentage:Float = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buyAmountTextField.keyboardType = UIKeyboardType.numberPad
+        sellAmountTextField.keyboardType = UIKeyboardType.numberPad
         totalBalanceLabel.text = "\(money)"
         stockNameLabel.text = stockName
         stockPriceLabel.text = "\(stockPrice)"
@@ -109,11 +111,15 @@ class TableDetailViewController: UIViewController {
         transaction.date = Date()
         transaction.type = "Buy"
         
-        
+        money -= Float(transaction.amount) * Float(transaction.price)
+        totalBalanceLabel.text = "\(money)"
+        UserDefaults.standard.set(Float(totalBalanceLabel.text!)!, forKey: "balance")
         
         buyAmountTextField.text = ""
         buyButton.isEnabled = false
         buyButton.alpha = 0.8
+        
+        
         
         var stockAmount: Int64 = 0
         for amountTransaction in stockTransaction
@@ -151,6 +157,9 @@ class TableDetailViewController: UIViewController {
         transaction.date = Date()
         transaction.type = "Sell"
         
+        money -= Float(transaction.amount) * Float(transaction.price)
+        totalBalanceLabel.text = "\(money)"
+        UserDefaults.standard.set(Float(totalBalanceLabel.text!)!, forKey: "balance")
         
         sellAmountTextField.text = ""
         sellButton.isEnabled = false
@@ -184,11 +193,27 @@ class TableDetailViewController: UIViewController {
     @IBAction func buyTextFieldEditingChanged(_ sender: Any) {
         buyButton.isEnabled = true
         buyButton.alpha = 1
+        
+        
+        if Float(buyAmountTextField.text!)! * stockPrice >= Float(totalBalanceLabel.text!)!{
+            buyAmountTextField.text = "\(Int(Float(totalBalanceLabel.text!)! / stockPrice))"
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+        }
+        
     }
     @IBAction func sellTextFieldEditingChanged(_ sender: Any) {
         sellButton.isEnabled = true
         sellButton.alpha = 1
+        
+        if Float(sellAmountTextField.text!)! > Float(stockAmountLabel.text!)!
+        {
+            sellAmountTextField.text = stockAmountLabel.text
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+        }
     }
+    
     
     
 }

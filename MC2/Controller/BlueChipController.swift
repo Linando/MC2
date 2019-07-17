@@ -12,7 +12,7 @@ class BlueChipController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     var titlePage = ""
-    var money:Int = 0
+    var money: Float = 0
     var jsonCounter = 98
     var stockPercentage: Float = 0
     var sortedStock: [TimeSeries.StockDate] = []
@@ -130,19 +130,19 @@ extension BlueChipController: UITableViewDelegate, UITableViewDataSource
             vc?.stockName = blueChipSymbol[indexPath.row]
             vc?.stockPrice = blueChipPrice[indexPath.row]
             vc?.stockPercentage = blueChipPercentage[indexPath.row]
-            vc!.money = money
+            vc!.money = Float(UserDefaults.standard.integer(forKey: "balance"))
             self.navigationController?.pushViewController(vc!, animated: true)
         }else if self.title == "Mid-Cap"{
             vc?.stockName = midCapSymbol[indexPath.row]
             vc?.stockPrice = midCapPrice[indexPath.row]
             vc?.stockPercentage = midCapPercentage[indexPath.row]
-            vc!.money = money
+            vc!.money = Float(UserDefaults.standard.integer(forKey: "balance"))
             self.navigationController?.pushViewController(vc!, animated: true)
         }else if self.title == "Penny Stock"{
             vc?.stockName = pennyStockSymbol[indexPath.row]
             vc?.stockPrice = pennyStockPrice[indexPath.row]
             vc?.stockPercentage = pennyStockPercentage[indexPath.row]
-            vc!.money = money
+            vc!.money = Float(UserDefaults.standard.integer(forKey: "balance"))
             self.navigationController?.pushViewController(vc!, animated: true)
         }
         
