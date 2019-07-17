@@ -109,13 +109,7 @@ class TableDetailViewController: UIViewController {
         transaction.date = Date()
         transaction.type = "Buy"
         
-        do {
-            try managedContext.save()
-            stockTransaction.append(transaction)
-            tableView.insertRows(at: [IndexPath(row: stockTransaction.count-1, section: 0)], with: .automatic)
-        } catch  {
-            print("gagal menyimpan")
-        }
+        
         
         buyAmountTextField.text = ""
         buyButton.isEnabled = false
@@ -135,6 +129,14 @@ class TableDetailViewController: UIViewController {
         }
         stockAmount += transaction.amount
         stockAmountLabel.text = "\(stockAmount)"
+        
+        do {
+            try managedContext.save()
+            stockTransaction.append(transaction)
+            tableView.insertRows(at: [IndexPath(row: stockTransaction.count-1, section: 0)], with: .automatic)
+        } catch  {
+            print("gagal menyimpan")
+        }
     }
     
      @IBAction func sellButtonTapped(_ sender: Any) {
@@ -149,11 +151,7 @@ class TableDetailViewController: UIViewController {
         transaction.date = Date()
         transaction.type = "Sell"
         
-        do {
-            try managedContext.save()
-        } catch  {
-            print("gagal menyimpan")
-        }
+        
         sellAmountTextField.text = ""
         sellButton.isEnabled = false
         sellButton.alpha = 0.8
@@ -173,6 +171,14 @@ class TableDetailViewController: UIViewController {
         }
         stockAmount -= transaction.amount
         stockAmountLabel.text = "\(stockAmount)"
+        
+        do {
+            try managedContext.save()
+            stockTransaction.append(transaction)
+            tableView.insertRows(at: [IndexPath(row: stockTransaction.count-1, section: 0)], with: .automatic)
+        } catch  {
+            print("gagal menyimpan")
+        }
         
      }
     @IBAction func buyTextFieldEditingChanged(_ sender: Any) {
