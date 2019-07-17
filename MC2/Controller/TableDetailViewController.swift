@@ -157,7 +157,7 @@ class TableDetailViewController: UIViewController {
         transaction.date = Date()
         transaction.type = "Sell"
         
-        money -= Float(transaction.amount) * Float(transaction.price)
+        money += Float(transaction.amount) * Float(transaction.price)
         totalBalanceLabel.text = "\(money)"
         UserDefaults.standard.set(Float(totalBalanceLabel.text!)!, forKey: "balance")
         
@@ -194,8 +194,7 @@ class TableDetailViewController: UIViewController {
         buyButton.isEnabled = true
         buyButton.alpha = 1
         
-        
-        if Float(buyAmountTextField.text!)! * stockPrice >= Float(totalBalanceLabel.text!)!{
+        if (Float(buyAmountTextField.text!) ?? 0) * stockPrice >= Float(totalBalanceLabel.text!)!{
             buyAmountTextField.text = "\(Int(Float(totalBalanceLabel.text!)! / stockPrice))"
             let generator = UIImpactFeedbackGenerator(style: .heavy)
             generator.impactOccurred()
@@ -206,7 +205,7 @@ class TableDetailViewController: UIViewController {
         sellButton.isEnabled = true
         sellButton.alpha = 1
         
-        if Float(sellAmountTextField.text!)! > Float(stockAmountLabel.text!)!
+        if (Float(sellAmountTextField.text!) ?? 0) >= Float(stockAmountLabel.text!)!
         {
             sellAmountTextField.text = stockAmountLabel.text
             let generator = UIImpactFeedbackGenerator(style: .heavy)
