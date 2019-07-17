@@ -22,6 +22,8 @@ class TableDetailViewController: UIViewController {
     @IBOutlet weak var stockNameSellLabel: UILabel!
     @IBOutlet weak var stockAmountLabel: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var sellButton: UIButton!
     @IBOutlet weak var buyAmountTextField: UITextField!
@@ -109,6 +111,8 @@ class TableDetailViewController: UIViewController {
         
         do {
             try managedContext.save()
+            stockTransaction.append(transaction)
+            tableView.insertRows(at: [IndexPath(row: stockTransaction.count-1, section: 0)], with: .automatic)
         } catch  {
             print("gagal menyimpan")
         }

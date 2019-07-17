@@ -594,6 +594,7 @@
                         <outlet property="stockNameLabel" destination="P6B-ng-Ey5" id="rZK-Ps-EYw"/>
                         <outlet property="stockNameSellLabel" destination="Cum-0s-lTK" id="KIJ-7W-TIC"/>
                         <outlet property="stockPriceLabel" destination="pRZ-x7-T8e" id="LCZ-9s-Ryt"/>
+                        <outlet property="tableView" destination="d2F-y4-aJa" id="Rl1-Xg-9x9"/>
                         <outlet property="totalBalanceLabel" destination="yMn-Ru-KFR" id="ogT-ON-Fw1"/>
                     </connections>
                 </viewController>
