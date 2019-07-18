@@ -25,9 +25,79 @@ class PortofolioViewController: UIViewController {
     
     var stockTransaction = [Transaction]()
     
+    var jumlahArray = 1
+    var tempNamaArray:[String] = []
+    var tempJumlahStockArray:[Int] = []
+    var temp = 0
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
+        tempNamaArray = []
+        tempJumlahStockArray = []
+        jumlahArray = 1
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        
+        let managedContext = appDelegate?.persistentContainer.viewContext
+        
+        do{
+        stockTransaction = try managedContext!.fetch(Transaction.fetchRequest())
+        
+            
+                if jumlahArray == 1{
+                    tempNamaArray.append(stockTransaction[0].name ?? "")
+                    if stockTransaction[0].type == "Buy"{
+                        tempJumlahStockArray.append(Int(stockTransaction[0].amount))
+                    }else if stockTransaction[0].type == "Sell"{
+                        tempJumlahStockArray.append(Int(stockTransaction[0].amount - (stockTransaction[0].amount * 2)))
+                    }
+                    jumlahArray += 1
+                }
+                    for j in 1...stockTransaction.count-1 {
+                    for k in 0...jumlahArray-2{
+//                        print(j)
+//                        print(stockTransaction[j].name)
+//                        print("pemisah")
+//                        print(k)
+//                        print(tempNamaArray[k])
+//                        print("selesai")
+                        if temp == 0{
+                            if stockTransaction[j].name == tempNamaArray[k]{
+                                if stockTransaction[j].type == "Buy"{
+                                    tempJumlahStockArray[k] += Int(stockTransaction[j].amount)
+                                }else if stockTransaction[j].type == "Sell"{
+                                    tempJumlahStockArray[k] -= Int(stockTransaction[j].amount)
+                                }
+                                temp+=1
+                            }
+                        }
+                        print(temp)
+                        
+                    }
+                    if temp == 0{
+                        tempNamaArray.append(stockTransaction[j].name ?? "")
+                        if stockTransaction[j].type == "Buy"{
+                            tempJumlahStockArray.append(Int(stockTransaction[j].amount))
+                        }else if stockTransaction[j].type == "Sell"{
+                            tempJumlahStockArray.append(Int(stockTransaction[j].amount - stockTransaction[j].amount * 2))
+                        }
+                        jumlahArray+=1
+                    }
+                    temp = 0
+                }
+            
+        } catch  {
+            print("Gagal Memanggil")
+        }
+//        for i in 0...stockTransaction.count-1{
+//            print(stockTransaction[i].name)
+//            print(stockTransaction[i].amount)
+//        }
+        
+        print(jumlahArray)
+        print(tempNamaArray)
+        print(tempJumlahStockArray)
+        
         let date = Date()
         let calendar = Calendar.current
         let dateStart = calendar.startOfDay(for: UserDefaults.standard.object(forKey: "lastLoginDate") as! Date)
@@ -59,9 +129,9 @@ class PortofolioViewController: UIViewController {
             }
         }
         
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        
-        let managedContext = appDelegate?.persistentContainer.viewContext
+//        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//
+//        let managedContext = appDelegate?.persistentContainer.viewContext
         
         //2
         var transactions = [Transaction]()
@@ -145,28 +215,24 @@ class PortofolioViewController: UIViewController {
 }
 extension PortofolioViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var tableSize:Int = 0
-        //salah
-        for transaction in 0...stockTransaction.count {
-            if stockTransaction[transaction].amount > 0{
-                tableSize+=1
-            }
-        }
-        return tableSize
+//        var tableSize:Int = 0
+//        //salah
+//        for transaction in 0...stockTransaction.count {
+//            if stockTransaction[transaction].amount > 0{
+//                tableSize+=1
+//            }
+//        }
+//        return tableSize
+        return jumlahArray-1
         //            return stockTransaction.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PortofolioTableViewCell") as! PortofolioTableViewCell
         
-//        for i in 0...stockTransaction.count {
-//            for j in 0...stockTransaction.count {
-//                if stockTransaction[j].name < stockTransaction[j+1].name
-//            }
-//        }
         
-        cell.stockNameLabel.text = ""
-        cell.stockAmountLabel.text = stockTransaction[indexPath.row].type
+        cell.stockNameLabel.text = tempNamaArray[indexPath.row]
+        cell.stockAmountLabel.text = "\(tempJumlahStockArray[indexPath.row])"
         
         return cell
     }
