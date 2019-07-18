@@ -181,7 +181,10 @@ class TableDetailViewController: UIViewController {
         }
         stockAmount -= transaction.amount
         stockAmountLabel.text = "\(stockAmount)"
-        
+        if stockAmount == 0{
+            //klo stocknya 0 di delete di core data
+            
+        }
         do {
             try managedContext.save()
             stockTransaction.append(transaction)

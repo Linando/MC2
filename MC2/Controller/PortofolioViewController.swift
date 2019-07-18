@@ -17,6 +17,7 @@ class PortofolioViewController: UIViewController {
     @IBOutlet weak var totalMarketValLabel: UILabel!
     @IBOutlet weak var unrealizedGainLossLabel: UILabel!
     @IBOutlet weak var netAssetLabel: UILabel!
+    @IBOutlet weak var portofolioTableView: UITableView!
     
     var sortedTodayStock: [TimeSeries.StockDate] = []
     var todayBlueChipPrice: [Float] = []
@@ -208,7 +209,7 @@ class PortofolioViewController: UIViewController {
 //        } catch  {
 //            print("Gagal Memanggil")
 //        }
-        
+        portofolioTableView.reloadData()
     }
     
 

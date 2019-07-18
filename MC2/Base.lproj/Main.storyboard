@@ -144,6 +144,7 @@
                     <connections>
                         <outlet property="balanceLabel" destination="87u-cr-hOG" id="KQP-4W-aGx"/>
                         <outlet property="netAssetLabel" destination="LPG-uj-dsw" id="Rhy-hV-LZ1"/>
+                        <outlet property="portofolioTableView" destination="kXM-zW-gsF" id="AVC-ys-rTt"/>
                         <outlet property="totalBuyValLabel" destination="gR3-Au-GKI" id="0Gh-ME-Wg6"/>
                         <outlet property="totalMarketValLabel" destination="CYV-Ji-dLt" id="zVK-DS-9Lb"/>
                         <outlet property="unrealizedGainLossLabel" destination="zSX-Zp-h3s" id="JAm-QA-JKI"/>
