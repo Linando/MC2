@@ -20,6 +20,11 @@ class StockViewController: UIViewController {
     @IBOutlet weak var pennyStockButton: UIButton!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        let date = Date()
+        UserDefaults.standard.set(date, forKey: "lastLoginDate")
+
+        
         let balance = UserDefaults.standard.integer(forKey: "balance")
         if balance > 0{
             

@@ -43,8 +43,8 @@ class PortofolioViewController: UIViewController {
         
         do{
         stockTransaction = try managedContext!.fetch(Transaction.fetchRequest())
-        
-            
+            if stockTransaction.count > 0{
+            for i in 0...stockTransaction.count-1{
                 if jumlahArray == 1{
                     tempNamaArray.append(stockTransaction[0].name ?? "")
                     if stockTransaction[0].type == "Buy"{
@@ -53,7 +53,7 @@ class PortofolioViewController: UIViewController {
                         tempJumlahStockArray.append(Int(stockTransaction[0].amount - (stockTransaction[0].amount * 2)))
                     }
                     jumlahArray += 1
-                }
+                }else{
                     for j in 1...stockTransaction.count-1 {
                     for k in 0...jumlahArray-2{
 //                        print(j)
@@ -86,7 +86,9 @@ class PortofolioViewController: UIViewController {
                     }
                     temp = 0
                 }
-            
+            }
+            }
+            }
         } catch  {
             print("Gagal Memanggil")
         }
