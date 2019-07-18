@@ -11,6 +11,7 @@
 		8A32EF0322D8457600EBC8BB /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32EF0222D8457600EBC8BB /* DepositViewController.swift */; };
 		8A32EF0522D84F2100EBC8BB /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32EF0422D84F2100EBC8BB /* StockViewController.swift */; };
 		8A32EF0722DD67BA00EBC8BB /* TableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32EF0622DD67BA00EBC8BB /* TableDetailViewController.swift */; };
+		8A32EF0922E00B4500EBC8BB /* PortofolioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32EF0822E00B4500EBC8BB /* PortofolioTableViewCell.swift */; };
 		D249118622DD8EBD00C0789B /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249118522DD8EBD00C0789B /* TransactionCell.swift */; };
 		D249FB6A22D4BCF600680BC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB6922D4BCF600680BC1 /* AppDelegate.swift */; };
 		D249FB6C22D4BCF600680BC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249FB6B22D4BCF600680BC1 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 		8A32EF0222D8457600EBC8BB /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		8A32EF0422D84F2100EBC8BB /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 		8A32EF0622DD67BA00EBC8BB /* TableDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDetailViewController.swift; sourceTree = "<group>"; };
+		8A32EF0822E00B4500EBC8BB /* PortofolioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortofolioTableViewCell.swift; sourceTree = "<group>"; };
 		D249118522DD8EBD00C0789B /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		D249FB6622D4BCF600680BC1 /* MC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D249FB6922D4BCF600680BC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,13 +79,14 @@
 			isa = PBXGroup;
 			children = (
 				8A32EF0222D8457600EBC8BB /* DepositViewController.swift */,
-				D25620D722DECDAA00C27D36 /* PortofolioViewController.swift */,
 				8A32EF0422D84F2100EBC8BB /* StockViewController.swift */,
 				D249FB6B22D4BCF600680BC1 /* ViewController.swift */,
 				D2915E1A22DC26FC00BFB201 /* BlueChipCell.swift */,
 				D2915E1C22DC271500BFB201 /* BlueChipController.swift */,
 				8A32EF0622DD67BA00EBC8BB /* TableDetailViewController.swift */,
 				D249118522DD8EBD00C0789B /* TransactionCell.swift */,
+				D25620D722DECDAA00C27D36 /* PortofolioViewController.swift */,
+				8A32EF0822E00B4500EBC8BB /* PortofolioTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				D249FB8522D8294E00680BC1 /* BlueChipJSON.swift in Sources */,
 				8A32EF0322D8457600EBC8BB /* DepositViewController.swift in Sources */,
 				D249FB6A22D4BCF600680BC1 /* AppDelegate.swift in Sources */,
+				8A32EF0922E00B4500EBC8BB /* PortofolioTableViewCell.swift in Sources */,
 				8A32EF0522D84F2100EBC8BB /* StockViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

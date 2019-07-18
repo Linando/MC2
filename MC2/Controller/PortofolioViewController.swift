@@ -23,6 +23,8 @@ class PortofolioViewController: UIViewController {
     var todayMidCapPrice: [Float] = []
     var todayPennyStockPrice: [Float] = []
     
+    var stockTransaction = [Transaction]()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
@@ -107,7 +109,15 @@ class PortofolioViewController: UIViewController {
             }
             totalBuyValLabel.text = "\(totalBuyValue)"
             totalMarketValLabel.text = "\(totalMarketValue)"
-            unrealizedGainLossLabel.text = "\(totalMarketValue-totalBuyValue)"
+            if totalMarketValue-totalBuyValue > 0 {
+                unrealizedGainLossLabel.text = "\(totalMarketValue-totalBuyValue)"
+                unrealizedGainLossLabel.textColor = UIColor(displayP3Red: 0, green: 0.9, blue: 0, alpha: 1)
+            }else if totalMarketValue-totalBuyValue < 0{
+                unrealizedGainLossLabel.text = "\(totalMarketValue-totalBuyValue)"
+                unrealizedGainLossLabel.textColor = UIColor(displayP3Red: 1, green: 0, blue: 0, alpha: 1)
+            }else{
+                unrealizedGainLossLabel.text = "\(totalMarketValue-totalBuyValue)"
+            }
             netAssetLabel.text = "\(Float(balance) + totalMarketValue)"
             
         } catch  {
@@ -130,5 +140,34 @@ class PortofolioViewController: UIViewController {
 //        }
         
     }
+    
 
+}
+extension PortofolioViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var tableSize:Int = 0
+        //salah
+        for transaction in 0...stockTransaction.count {
+            if stockTransaction[transaction].amount > 0{
+                tableSize+=1
+            }
+        }
+        return tableSize
+        //            return stockTransaction.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PortofolioTableViewCell") as! PortofolioTableViewCell
+        
+//        for i in 0...stockTransaction.count {
+//            for j in 0...stockTransaction.count {
+//                if stockTransaction[j].name < stockTransaction[j+1].name
+//            }
+//        }
+        
+        cell.stockNameLabel.text = ""
+        cell.stockAmountLabel.text = stockTransaction[indexPath.row].type
+        
+        return cell
+    }
 }
