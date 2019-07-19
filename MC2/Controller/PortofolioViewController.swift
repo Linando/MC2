@@ -34,17 +34,18 @@ class PortofolioViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
-        tempNamaArray = []
-        tempJumlahStockArray = []
-        jumlahArray = 1
+        
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         
         let managedContext = appDelegate?.persistentContainer.viewContext
         
         do{
+            tempNamaArray = []
+            tempJumlahStockArray = []
+            jumlahArray = 1
         stockTransaction = try managedContext!.fetch(Transaction.fetchRequest())
             if stockTransaction.count > 0{
-            for i in 0...stockTransaction.count-1{
+            for i in 0...jumlahArray{
                 if jumlahArray == 1{
                     tempNamaArray.append(stockTransaction[0].name ?? "")
                     if stockTransaction[0].type == "Buy"{
@@ -238,5 +239,15 @@ extension PortofolioViewController: UITableViewDelegate, UITableViewDataSource{
         cell.stockAmountLabel.text = "\(tempJumlahStockArray[indexPath.row])"
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PortofolioTableViewCell") as! PortofolioTableViewCell
+        
+        var vc = storyboard?.instantiateViewController(withIdentifier: "TableDetailViewController") as? TableDetailViewController
+            vc?.stockName = tempNamaArray[indexPath.row] ?? ""
+        print(vc?.stockName)
+            vc!.money = Float(UserDefaults.standard.integer(forKey: "balance"))
+            self.navigationController?.pushViewController(vc!, animated: true)
+        
     }
 }

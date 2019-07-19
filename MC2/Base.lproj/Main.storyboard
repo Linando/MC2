@@ -126,7 +126,6 @@
                                         <connections>
                                             <outlet property="stockAmountLabel" destination="3YX-bb-Pi9" id="7l5-NX-vk1"/>
                                             <outlet property="stockNameLabel" destination="fvH-jr-Dib" id="vXt-ry-u61"/>
-                                            <segue destination="mhb-UZ-oPR" kind="show" id="Zhp-qS-41k"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -148,6 +147,7 @@
                         <outlet property="totalBuyValLabel" destination="gR3-Au-GKI" id="0Gh-ME-Wg6"/>
                         <outlet property="totalMarketValLabel" destination="CYV-Ji-dLt" id="zVK-DS-9Lb"/>
                         <outlet property="unrealizedGainLossLabel" destination="zSX-Zp-h3s" id="JAm-QA-JKI"/>
+                        <segue destination="mhb-UZ-oPR" kind="show" id="ZqJ-Xg-D8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cs-Yn-MRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -763,7 +763,7 @@
         <image name="Chevron Right" width="13" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="b44-fS-KiT"/>
+        <segue reference="ZqJ-Xg-D8s"/>
         <segue reference="32K-AV-Tcc"/>
     </inferredMetricsTieBreakers>
 </document>

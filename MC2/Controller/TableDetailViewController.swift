@@ -51,7 +51,7 @@ class TableDetailViewController: UIViewController {
         }
         
         stockNameSellLabel.text = stockName
-        
+        self.title = stockName
         buyButton.isEnabled = false
         buyButton.alpha = 0.8
         sellButton.isEnabled = false
