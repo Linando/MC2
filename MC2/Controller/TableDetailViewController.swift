@@ -150,6 +150,7 @@ class TableDetailViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        
         let transaction = Transaction(context: managedContext)
         
         transaction.name = stockName
